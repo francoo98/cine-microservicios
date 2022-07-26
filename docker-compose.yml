@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  gateway:
+    build: ./gateway/
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./gateway:/gateway
+  peliculas:
+    build: ./peliculas/
+    ports:
+      - "8001:8080"
+    volumes:
+      - ./peliculas/target:/peliculas
+  proyecciones:
+    build: ./proyecciones/
+    volumes:
+      - ./proyecciones/:/proyecciones
+    ports:
+      - "8002:8080"
+  butacas:
+    build: ./butacas/
+    volumes:
+      - ./butacas/:/butacas
+    ports:
+      - "8003:8080"
+  salas:
+    build: ./salas/
+    ports:
+      - "8004:8080"
+    volumes:
+      - ./salas/target/:/salas
